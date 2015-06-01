@@ -8,6 +8,7 @@
 
 import LivingThing from '../lib/LivingThing';
 import Archaea from '../lib/Archaea';
+import Bacteria from '../lib/Bacteria';
 
 import 'should';
 
@@ -145,6 +146,36 @@ describe('Archaea', () => {
       archaea._anaerobic.should.be.true;
       archaea._asexual.should.be.true;
       archaea._mobile.should.be.false;
+    });
+    
+  });
+
+});
+
+describe('Bacteria', () => {
+  
+  let bacteria;
+
+  beforeEach(() => {
+    bacteria = new Bacteria('Clostridium');
+  });
+
+  it('should extend LivingThing', () => {
+    (bacteria instanceof LivingThing).should.be.true;
+  });
+
+  describe('constructor', () => {
+    
+    it('should have constructor arguments (name) that sets the private `_name` value', () => {
+      bacteria._name.should.be.equal('Clostridium');
+    });
+
+    it('should invoke super constructor with correct hardcoded arguments', () => {
+      bacteria._uniCellular.should.be.true;
+      bacteria._trueNucleus.should.be.false;
+      bacteria._anaerobic.should.be.false;
+      bacteria._asexual.should.be.true;
+      bacteria._mobile.should.be.false;
     });
     
   });
