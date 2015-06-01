@@ -7,8 +7,9 @@
  */
 
 import LivingThing from '../lib/LivingThing';
+import Archaea from '../lib/Archaea';
 
-import assert from 'should';
+import 'should';
 
 describe('LivingThing', () => {
   
@@ -22,11 +23,11 @@ describe('LivingThing', () => {
     
     it('should have constructor arguments (name, uniCellular, trueNucleus, anaerobic, asexual, mobile) that set respective private variables', () => {
       livingThing._name.should.be.equal('alien');
-      livingThing._uniCellular = false;
-      livingThing._trueNucleus = true;
-      livingThing._anaerobic = false;
-      livingThing._asexual = true;
-      livingThing._mobile = true;
+      livingThing._uniCellular.should.be.false;
+      livingThing._trueNucleus.should.be.true;
+      livingThing._anaerobic.should.be.false;
+      livingThing._asexual.should.be.true;
+      livingThing._mobile.should.be.true;
     });
     
   });
@@ -114,6 +115,36 @@ describe('LivingThing', () => {
       livingThing.immobile = true;
       livingThing._mobile.should.be.equal(false);
       livingThing.immobile.should.be.equal(true);
+    });
+    
+  });
+
+});
+
+describe('Archaea', () => {
+  
+  let archaea;
+
+  beforeEach(() => {
+    archaea = new Archaea('Acidilobus saccharovorans');
+  });
+
+  it('should extend LivingThing', () => {
+    (archaea instanceof LivingThing).should.be.true;
+  });
+
+  describe('constructor', () => {
+    
+    it('should have constructor arguments (name) that sets the private `_name` value', () => {
+      archaea._name.should.be.equal('Acidilobus saccharovorans');
+    });
+
+    it('should invoke super constructor with correct hardcoded arguments', () => {
+      archaea._uniCellular.should.be.true;
+      archaea._trueNucleus.should.be.false;
+      archaea._anaerobic.should.be.true;
+      archaea._asexual.should.be.true;
+      archaea._mobile.should.be.false;
     });
     
   });
