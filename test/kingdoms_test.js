@@ -18,6 +18,7 @@ import Cnidarian from '../lib/Cnidarian';
 import Bilateral from '../lib/Bilateral';
 import Mollusk from '../lib/Mollusk';
 import Anthropod from '../lib/Anthropod';
+import Vertebrate from '../lib/Vertebrate';
 
 import 'should';
 
@@ -499,6 +500,39 @@ describe('Anthropod', () => {
       lobster._asexual.should.be.false;
       lobster._mobile.should.be.true;
       lobster._heterotroph.should.be.true;
+    });
+
+  });
+
+});
+
+describe('Vertebrate', () => {
+  
+  let swordFish;
+
+  beforeEach(() => {
+    swordFish = new Vertebrate('Swordfish');
+  });
+
+  it('should extend Bilateral', () => {
+    (swordFish instanceof Bilateral).should.be.true;
+  });
+
+  describe('constructor', () => {
+    
+    it('should have arguments (name) that set respective private variables', () => {
+      swordFish._name.should.be.equal('Swordfish');
+    });
+
+    it('should invoke super constructor with correct hardcoded arguments', () => {
+      swordFish._body.should.be.equal('vertebral-column');
+      swordFish._symmetry.should.be.equal('bilateral');
+      swordFish._uniCellular.should.be.false;
+      swordFish._trueNucleus.should.be.true;
+      swordFish._anaerobic.should.be.false;
+      swordFish._asexual.should.be.false;
+      swordFish._mobile.should.be.true;
+      swordFish._heterotroph.should.be.true;
     });
 
   });
