@@ -12,6 +12,7 @@ import Bacteria from '../lib/Bacteria';
 import Eukaryota from '../lib/Eukaryota';
 import Fungi from '../lib/Fungi';
 import Protista from '../lib/Protista';
+import Plant from '../lib/Plant';
 
 import 'should';
 
@@ -291,6 +292,36 @@ describe('Protista', () => {
       amoeba._trueNucleus.should.be.true;
       amoeba._anaerobic.should.be.false;
       amoeba._asexual.should.be.true;
+    });
+    
+  });
+});
+
+describe('Plant', () => {
+  
+  let grass;
+
+  beforeEach(() => {
+    grass = new Plant('Grass', false, true, true);
+  });
+
+  it('should extend Eukaryota', () => {
+    (grass instanceof Eukaryota).should.be.true;
+  });
+
+  describe('constructor', () => {
+    
+    it('should have arguments (name) that set respective private variables', () => {
+      grass._name.should.be.equal('Grass');
+    });
+
+    it('should invoke super constructor with correct hardcoded arguments', () => {
+      grass._uniCellular.should.be.false;
+      grass._trueNucleus.should.be.true;
+      grass._anaerobic.should.be.false;
+      grass._asexual.should.be.true;
+      grass._mobile.should.be.false;
+      grass._heterotroph.should.be.false;
     });
     
   });
