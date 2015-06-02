@@ -17,6 +17,7 @@ import Animal from '../lib/Animal';
 import Cnidarian from '../lib/Cnidarian';
 import Bilateral from '../lib/Bilateral';
 import Mollusk from '../lib/Mollusk';
+import Anthropod from '../lib/Anthropod';
 
 import 'should';
 
@@ -446,8 +447,8 @@ describe('Mollusk', () => {
     stingRay = new Mollusk('Sting Ray');
   });
 
-  it('should extend Animal', () => {
-    (stingRay instanceof Animal).should.be.true;
+  it('should extend Bilateral', () => {
+    (stingRay instanceof Bilateral).should.be.true;
   });
 
   describe('constructor', () => {
@@ -465,6 +466,39 @@ describe('Mollusk', () => {
       stingRay._asexual.should.be.false;
       stingRay._mobile.should.be.true;
       stingRay._heterotroph.should.be.true;
+    });
+
+  });
+
+});
+
+describe('Anthropod', () => {
+  
+  let lobster;
+
+  beforeEach(() => {
+    lobster = new Anthropod('Lobster');
+  });
+
+  it('should extend Bilateral', () => {
+    (lobster instanceof Bilateral).should.be.true;
+  });
+
+  describe('constructor', () => {
+    
+    it('should have arguments (name) that set respective private variables', () => {
+      lobster._name.should.be.equal('Lobster');
+    });
+
+    it('should invoke super constructor with correct hardcoded arguments', () => {
+      lobster._body.should.be.equal('exoskeleton');
+      lobster._symmetry.should.be.equal('bilateral');
+      lobster._uniCellular.should.be.false;
+      lobster._trueNucleus.should.be.true;
+      lobster._anaerobic.should.be.false;
+      lobster._asexual.should.be.false;
+      lobster._mobile.should.be.true;
+      lobster._heterotroph.should.be.true;
     });
 
   });
