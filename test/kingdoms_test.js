@@ -14,6 +14,7 @@ import Fungi from '../lib/Fungi';
 import Protista from '../lib/Protista';
 import Plant from '../lib/Plant';
 import Animal from '../lib/Animal';
+import Cnidarian from '../lib/Cnidarian';
 
 import 'should';
 
@@ -367,4 +368,37 @@ describe('Animal', () => {
       dog.symmetry.should.be.equal('exoskeleton');
     });
   });
+});
+
+describe('Cnidarian', () => {
+  
+  let jellyfish;
+
+  beforeEach(() => {
+    jellyfish = new Cnidarian('Jellyfish');
+  });
+
+  it('should extend Animal', () => {
+    (jellyfish instanceof Animal).should.be.true;
+  });
+
+  describe('constructor', () => {
+    
+    it('should have arguments (name) that set respective private variables', () => {
+      jellyfish._name.should.be.equal('Jellyfish');
+    });
+
+    it('should invoke super constructor with correct hardcoded arguments', () => {
+      jellyfish._symmetry.should.be.equal('radial');
+      jellyfish.symmetry.should.be.equal('radial');
+      jellyfish._uniCellular.should.be.false;
+      jellyfish._trueNucleus.should.be.true;
+      jellyfish._anaerobic.should.be.false;
+      jellyfish._asexual.should.be.false;
+      jellyfish._mobile.should.be.true;
+      jellyfish._heterotroph.should.be.true;
+    });
+
+  });
+
 });
