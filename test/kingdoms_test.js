@@ -15,6 +15,7 @@ import Protista from '../lib/Protista';
 import Plant from '../lib/Plant';
 import Animal from '../lib/Animal';
 import Cnidarian from '../lib/Cnidarian';
+import Bilateral from '../lib/Bilateral';
 
 import 'should';
 
@@ -334,7 +335,7 @@ describe('Animal', () => {
   let dog;
 
   beforeEach(() => {
-    dog = new Animal('Dog', 'vertebral-column');
+    dog = new Animal('Dog', 'bilateral');
   });
 
   it('should extend Eukaryota', () => {
@@ -345,7 +346,7 @@ describe('Animal', () => {
     
     it('should have arguments (name, symmetry) that set respective private variables', () => {
       dog._name.should.be.equal('Dog');
-      dog._symmetry.should.be.equal('vertebral-column');
+      dog._symmetry.should.be.equal('bilateral');
     });
 
     it('should invoke super constructor with correct hardcoded arguments', () => {
@@ -361,11 +362,11 @@ describe('Animal', () => {
 
   describe('getters and setters', () => {
     it('should have a method named `symmetry` that returns a string value based on the private variable `_symmetry`', () => {
-      dog._symmetry.should.be.equal('vertebral-column');
-      dog.symmetry.should.be.equal('vertebral-column');
-      dog.symmetry = 'exoskeleton';
-      dog._symmetry.should.be.equal('exoskeleton');
-      dog.symmetry.should.be.equal('exoskeleton');
+      dog._symmetry.should.be.equal('bilateral');
+      dog.symmetry.should.be.equal('bilateral');
+      dog.symmetry = 'radial';
+      dog._symmetry.should.be.equal('radial');
+      dog.symmetry.should.be.equal('radial');
     });
   });
 });
@@ -397,6 +398,39 @@ describe('Cnidarian', () => {
       jellyfish._asexual.should.be.false;
       jellyfish._mobile.should.be.true;
       jellyfish._heterotroph.should.be.true;
+    });
+
+  });
+
+});
+
+describe('Bilateral', () => {
+  
+  let cat;
+
+  beforeEach(() => {
+    cat = new Bilateral('Cat', 'vertebral-column');
+  });
+
+  it('should extend Animal', () => {
+    (cat instanceof Animal).should.be.true;
+  });
+
+  describe('constructor', () => {
+    
+    it('should have arguments (name, body) that set respective private variables', () => {
+      cat._name.should.be.equal('Cat');
+      cat._body.should.be.equal('vertebral-column');
+    });
+
+    it('should invoke super constructor with correct hardcoded arguments', () => {
+      cat._symmetry.should.be.equal('bilateral');
+      cat._uniCellular.should.be.false;
+      cat._trueNucleus.should.be.true;
+      cat._anaerobic.should.be.false;
+      cat._asexual.should.be.false;
+      cat._mobile.should.be.true;
+      cat._heterotroph.should.be.true;
     });
 
   });
