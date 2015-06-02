@@ -32,7 +32,7 @@ describe('LivingThing', () => {
 
   describe('constructor', () => {
     
-    it('should have arguments (name, uniCellular, trueNucleus, anaerobic, asexual, mobile) that set respective private variables', () => {
+    it('should have arguments (name, uniCellular, trueNucleus, anaerobic, asexual, mobile) that set respective private properties', () => {
       livingThing._name.should.be.equal('alien');
       livingThing._uniCellular.should.be.false;
       livingThing._trueNucleus.should.be.true;
@@ -45,69 +45,87 @@ describe('LivingThing', () => {
 
   describe('getters and setters', () => {
     
-    it('should have a method that returns the value of the private variable `_name`', () => {
+    it('should have a method named `name` that returns the value of the private property `_name`', () => {
       livingThing._name.should.be.equal('alien');
       livingThing.name.should.be.equal('alien');
+    });
+    it('should have a method named `name` that sets the value of the private property `_name`', () => {
       livingThing.name = 'alf';
       livingThing._name.should.be.equal('alf');
       livingThing.name.should.be.equal('alf');
     });
 
-    it('should have a method named `uniCellular` that returns a boolean value based on the private variable `_uniCellular`', () => {
+    it('should have a method named `uniCellular` that returns a boolean value based on the private property `_uniCellular`', () => {
       livingThing._uniCellular.should.be.false;
       livingThing.uniCellular.should.be.false;
+    });
+    it('should have a method named `uniCellular` that sets the value of the private property `_uniCellular`', () => {
       livingThing.uniCellular = true;
       livingThing._uniCellular.should.be.true;
       livingThing.uniCellular.should.be.true;
     });
-    it('should have a method named `multiCellular` that returns a boolean value based on the private variable `_uniCellular`', () => {
+    it('should have a method named `multiCellular` that returns a boolean value based on the private property `_uniCellular`', () => {
       livingThing._uniCellular.should.be.false;
-      livingThing.multiCellular.should.be.true;
+      livingThing.multiCellular.should.be.true;;
+    });
+    it('should have a method named `multiCellular` that sets the value of the private property `_uniCellular`', () => {
       livingThing.multiCellular = false;
       livingThing._uniCellular.should.be.true;
       livingThing.multiCellular.should.be.false;
     });
 
-    it('should have a method named `eukaryote` that returns a boolean value based on the private variable `_trueNucleus`', () => {
+    it('should have a method named `eukaryote` that returns a boolean value based on the private property `_trueNucleus`', () => {
       livingThing._trueNucleus.should.be.true;
       livingThing.eukaryote.should.be.true;
+    });
+    it('should have a method named `eukaryote` that sets the value of the private property `_trueNucleus`', () => {
       livingThing.eukaryote = false;
       livingThing._trueNucleus.should.be.false;
       livingThing.eukaryote.should.be.false;
     });
-    it('should have a method named `prokaryote` that returns a boolean value based on the private variable `_trueNucleus`', () => {
+    it('should have a method named `prokaryote` that returns a boolean value based on the private property `_trueNucleus`', () => {
       livingThing._trueNucleus.should.be.true;
       livingThing.prokaryote.should.be.false;
+    });
+    it('should have a method named `prokaryote` that sets the value of the private property `_trueNucleus`', () => {
       livingThing.prokaryote = true;
       livingThing._trueNucleus.should.be.false;
       livingThing.prokaryote.should.be.true;
     });
 
-    it('should have a method named `anaerobic` that returns a boolean value based on the private variable `_anaerobic`', () => {
+    it('should have a method named `anaerobic` that returns a boolean value based on the private property `_anaerobic`', () => {
       livingThing._anaerobic.should.be.false;
       livingThing.anaerobic.should.be.false;
+    });
+    it('should have a method named `anaerobic` that sets the value of the private property `_anaerobic`', () => {
       livingThing.anaerobic = true;
       livingThing._anaerobic.should.be.true;
       livingThing.anaerobic.should.be.true;
     });
-    it('should have a method named `aerobic` that returns a boolean value based on the private variable `_anaerobic`', () => {
+    it('should have a method named `aerobic` that returns a boolean value based on the private property `_anaerobic`', () => {
       livingThing._anaerobic.should.be.false;
       livingThing.aerobic.should.be.true;
+    });
+    it('should have a method named `aerobic` that sets the value of the private property `_anaerobic`', () => {
       livingThing.aerobic = false;
       livingThing._anaerobic.should.be.true;
       livingThing.aerobic.should.be.false;
     });
     
-    it('should have a method named `asexual` that returns a boolean value based on the private variable `_asexual`', () => {
+    it('should have a method named `asexual` that returns a boolean value based on the private property `_asexual`', () => {
       livingThing._asexual.should.be.true;
       livingThing.asexual.should.be.true;
+    });
+    it('should have a method named `asexual` that sets the value of the private property `_asexual`', () => {
       livingThing.asexual = false;
       livingThing._asexual.should.be.false;
       livingThing.asexual.should.be.false;
     });
-    it('should have a method named `sexual` that returns a boolean value based on the private variable `_asexual`', () => {
+    it('should have a method named `sexual` that returns a boolean value based on the private property `_asexual`', () => {
       livingThing._asexual.should.be.true;
       livingThing.sexual.should.be.false;
+    });
+    it('should have a method named `sexual` that sets the value of the private property `_asexual`', () => {
       livingThing.sexual = true;
       livingThing._asexual.should.be.false;
       livingThing.sexual.should.be.true;
@@ -116,6 +134,8 @@ describe('LivingThing', () => {
     it('should have a method named `mobile` that returns a boolean value based on the private `_mobile`', () => {
       livingThing._mobile.should.be.true;
       livingThing.mobile.should.be.true;
+    });
+    it('should have a method named `mobile` that sets the value of the private `_mobile`', () => {
       livingThing.mobile = false;
       livingThing._mobile.should.be.false;
       livingThing.mobile.should.be.false;
@@ -123,6 +143,8 @@ describe('LivingThing', () => {
     it('should have a method named `immobile` that returns a boolean value based on the private `_mobile`', () => {
       livingThing._mobile.should.be.true;
       livingThing.immobile.should.be.false;
+    });
+    it('should have a method named `immobile` that sets the value of the private `_mobile`', () => {
       livingThing.immobile = true;
       livingThing._mobile.should.be.false;
       livingThing.immobile.should.be.true;
@@ -206,7 +228,7 @@ describe('Eukaryota', () => {
 
   describe('constructor', () => {
     
-    it('should have arguments (name, uniCellular, asexual, mobile, heterotroph) that set respective private variables', () => {
+    it('should have arguments (name, uniCellular, asexual, mobile, heterotroph) that set respective private properties', () => {
       eukaryota._name.should.be.equal('Yeast');
       eukaryota._uniCellular.should.be.false;
       eukaryota._asexual.should.be.true;
@@ -225,16 +247,20 @@ describe('Eukaryota', () => {
   });
 
   describe('getters and setters', () => {
-    it('should have a method named `heterotroph` that returns a boolean value based on the private variable `_heterotroph`', () => {
+    it('should have a method named `heterotroph` that returns a boolean value based on the private property `_heterotroph`', () => {
       eukaryota._heterotroph.should.be.true;
       eukaryota.heterotroph.should.be.true;
+    });
+    it('should have a method named `heterotroph` that sets the value of the private property `_heterotroph`', () => {
       eukaryota.heterotroph = false;
       eukaryota._heterotroph.should.be.false;
       eukaryota.heterotroph.should.be.false;
     });
-    it('should have a method named `autotroph` that returns a boolean value based on the private variable `_heterotroph`', () => {
+    it('should have a method named `autotroph` that returns a boolean value based on the private property `_heterotroph`', () => {
       eukaryota._heterotroph.should.be.true;
       eukaryota.autotroph.should.be.false;
+    });
+    it('should have a method named `autotroph` that sets the value of the private property `_heterotroph`', () => {
       eukaryota.autotroph = true;
       eukaryota._heterotroph.should.be.false;
       eukaryota.autotroph.should.be.true;
@@ -257,7 +283,7 @@ describe('Fungi', () => {
 
   describe('constructor', () => {
     
-    it('should have arguments (name) that set respective private variables', () => {
+    it('should have arguments (name) that set respective private properties', () => {
       fungus._name.should.be.equal('The Fungus among us');
     });
 
@@ -287,7 +313,7 @@ describe('Protista', () => {
 
   describe('constructor', () => {
     
-    it('should have arguments (name, uniCellular, mobile, heterotroph) that set respective private variables', () => {
+    it('should have arguments (name, uniCellular, mobile, heterotroph) that set respective private properties', () => {
       amoeba._name.should.be.equal('Amoeba');
       amoeba._uniCellular.should.be.false;
       amoeba._mobile.should.be.true;
@@ -317,7 +343,7 @@ describe('Plant', () => {
 
   describe('constructor', () => {
     
-    it('should have arguments (name) that set respective private variables', () => {
+    it('should have arguments (name) that set respective private properties', () => {
       grass._name.should.be.equal('Grass');
     });
 
@@ -347,7 +373,7 @@ describe('Animal', () => {
 
   describe('constructor', () => {
     
-    it('should have arguments (name, symmetry) that set respective private variables', () => {
+    it('should have arguments (name, symmetry) that set respective private properties', () => {
       dog._name.should.be.equal('Dog');
       dog._symmetry.should.be.equal('bilateral');
     });
@@ -364,9 +390,11 @@ describe('Animal', () => {
   });
 
   describe('getters and setters', () => {
-    it('should have a method named `symmetry` that returns a string value based on the private variable `_symmetry`', () => {
+    it('should have a method named `symmetry` that returns a string value based on the private property `_symmetry`', () => {
       dog._symmetry.should.be.equal('bilateral');
       dog.symmetry.should.be.equal('bilateral');
+    });
+    it('should have a method named `symmetry` that sets the value of the private property `_symmetry`', () => {
       dog.symmetry = 'radial';
       dog._symmetry.should.be.equal('radial');
       dog.symmetry.should.be.equal('radial');
@@ -388,7 +416,7 @@ describe('Cnidarian', () => {
 
   describe('constructor', () => {
     
-    it('should have arguments (name) that set respective private variables', () => {
+    it('should have arguments (name) that set respective private properties', () => {
       jellyfish._name.should.be.equal('Jellyfish');
     });
 
@@ -421,7 +449,7 @@ describe('Bilateral', () => {
 
   describe('constructor', () => {
     
-    it('should have arguments (name, body) that set respective private variables', () => {
+    it('should have arguments (name, body) that set respective private properties', () => {
       cat._name.should.be.equal('Cat');
       cat._body.should.be.equal('vertebral-column');
     });
@@ -454,7 +482,7 @@ describe('Mollusk', () => {
 
   describe('constructor', () => {
     
-    it('should have arguments (name) that set respective private variables', () => {
+    it('should have arguments (name) that set respective private properties', () => {
       stingRay._name.should.be.equal('Sting Ray');
     });
 
@@ -487,7 +515,7 @@ describe('Anthropod', () => {
 
   describe('constructor', () => {
     
-    it('should have arguments (name) that set respective private variables', () => {
+    it('should have arguments (name) that set respective private properties', () => {
       lobster._name.should.be.equal('Lobster');
     });
 
@@ -520,7 +548,7 @@ describe('Vertebrate', () => {
 
   describe('constructor', () => {
     
-    it('should have arguments (name) that set respective private variables', () => {
+    it('should have arguments (name) that set respective private properties', () => {
       swordFish._name.should.be.equal('Swordfish');
     });
 
