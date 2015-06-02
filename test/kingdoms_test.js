@@ -466,6 +466,18 @@ describe('Bilateral', () => {
 
   });
 
+  describe('getters and setters', () => {
+    it('should have a method named `body` that returns a string value based on the private property `_body`', () => {
+      cat._body.should.be.equal('vertebral-column');
+      cat.body.should.be.equal('vertebral-column');
+    });
+    it('should have a method named `body` that sets the value of the private property `_body`', () => {
+      cat.body = 'soft-bodied';
+      cat._body.should.be.equal('soft-bodied');
+      cat.body.should.be.equal('soft-bodied');
+    });
+  });
+
 });
 
 describe('Mollusk', () => {
