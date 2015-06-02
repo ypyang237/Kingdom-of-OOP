@@ -53,7 +53,14 @@ gulp.task('test', ['build', 'lint', 'istanbul']);
 gulp.task('default', ['watch']);
 
 gulp.task('run', function () {
-  require('./example/index');
+  return gulp.src(['./example/**'])
+    .pipe(plugins.sourcemaps.init())
+    .pipe(plugins.babel())
+    .pipe(plugins.sourcemaps.write('.'))
+    .pipe(gulp.dest(paths.bin))
+    .on('finish', function(){
+      require('./bin/index');
+    });
 });
 
 gulp.task('build', function () {

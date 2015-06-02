@@ -307,3 +307,12 @@ defined with the following parameters
 invokes the super constructor with all required arguments using the following hard coded values
 
 - body = 'vertebral-column'
+
+## When all tests pass
+
+Play with instantiating objects in `./example/index.js`  
+there is one example of each class already written
+
+```bash
+gulp run
+```
