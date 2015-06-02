@@ -11,6 +11,7 @@ import Archaea from '../lib/Archaea';
 import Bacteria from '../lib/Bacteria';
 import Eukaryota from '../lib/Eukaryota';
 import Fungi from '../lib/Fungi';
+import Protista from '../lib/Protista';
 
 import 'should';
 
@@ -240,7 +241,7 @@ describe('Fungi', () => {
   let fungus;
 
   beforeEach(() => {
-    fungus = new Fungi('Mushroom');
+    fungus = new Fungi('The Fungus among us');
   });
 
   it('should extend Eukaryota', () => {
@@ -250,7 +251,7 @@ describe('Fungi', () => {
   describe('constructor', () => {
     
     it('should have arguments (name) that set respective private variables', () => {
-      fungus._name.should.be.equal('Mushroom');
+      fungus._name.should.be.equal('The Fungus among us');
     });
 
     it('should invoke super constructor with correct hardcoded arguments', () => {
@@ -260,6 +261,36 @@ describe('Fungi', () => {
       fungus._asexual.should.be.true;
       fungus._mobile.should.be.false;
       fungus._heterotroph.should.be.true;
+    });
+    
+  });
+});
+
+describe('Protista', () => {
+  
+  let amoeba;
+
+  beforeEach(() => {
+    amoeba = new Protista('Amoeba', false, true, true);
+  });
+
+  it('should extend Eukaryota', () => {
+    (amoeba instanceof Eukaryota).should.be.true;
+  });
+
+  describe('constructor', () => {
+    
+    it('should have arguments (name, uniCellular, mobile, heterotroph) that set respective private variables', () => {
+      amoeba._name.should.be.equal('Amoeba');
+      amoeba._uniCellular.should.be.false;
+      amoeba._mobile.should.be.true;
+      amoeba._heterotroph.should.be.true;
+    });
+
+    it('should invoke super constructor with correct hardcoded arguments', () => {
+      amoeba._trueNucleus.should.be.true;
+      amoeba._anaerobic.should.be.false;
+      amoeba._asexual.should.be.true;
     });
     
   });
