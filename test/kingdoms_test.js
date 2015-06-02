@@ -16,6 +16,7 @@ import Plant from '../lib/Plant';
 import Animal from '../lib/Animal';
 import Cnidarian from '../lib/Cnidarian';
 import Bilateral from '../lib/Bilateral';
+import Mollusk from '../lib/Mollusk';
 
 import 'should';
 
@@ -431,6 +432,39 @@ describe('Bilateral', () => {
       cat._asexual.should.be.false;
       cat._mobile.should.be.true;
       cat._heterotroph.should.be.true;
+    });
+
+  });
+
+});
+
+describe('Mollusk', () => {
+  
+  let stingRay;
+
+  beforeEach(() => {
+    stingRay = new Mollusk('Sting Ray');
+  });
+
+  it('should extend Animal', () => {
+    (stingRay instanceof Animal).should.be.true;
+  });
+
+  describe('constructor', () => {
+    
+    it('should have arguments (name) that set respective private variables', () => {
+      stingRay._name.should.be.equal('Sting Ray');
+    });
+
+    it('should invoke super constructor with correct hardcoded arguments', () => {
+      stingRay._body.should.be.equal('soft-bodied');
+      stingRay._symmetry.should.be.equal('bilateral');
+      stingRay._uniCellular.should.be.false;
+      stingRay._trueNucleus.should.be.true;
+      stingRay._anaerobic.should.be.false;
+      stingRay._asexual.should.be.false;
+      stingRay._mobile.should.be.true;
+      stingRay._heterotroph.should.be.true;
     });
 
   });
