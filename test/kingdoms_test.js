@@ -13,6 +13,7 @@ import Eukaryota from '../lib/Eukaryota';
 import Fungi from '../lib/Fungi';
 import Protista from '../lib/Protista';
 import Plant from '../lib/Plant';
+import Animal from '../lib/Animal';
 
 import 'should';
 
@@ -324,5 +325,46 @@ describe('Plant', () => {
       grass._heterotroph.should.be.false;
     });
     
+  });
+});
+
+describe('Animal', () => {
+  
+  let dog;
+
+  beforeEach(() => {
+    dog = new Animal('Dog', 'vertebral-column');
+  });
+
+  it('should extend Eukaryota', () => {
+    (dog instanceof Eukaryota).should.be.true;
+  });
+
+  describe('constructor', () => {
+    
+    it('should have arguments (name, symmetry) that set respective private variables', () => {
+      dog._name.should.be.equal('Dog');
+      dog._symmetry.should.be.equal('vertebral-column');
+    });
+
+    it('should invoke super constructor with correct hardcoded arguments', () => {
+      dog._uniCellular.should.be.false;
+      dog._trueNucleus.should.be.true;
+      dog._anaerobic.should.be.false;
+      dog._asexual.should.be.false;
+      dog._mobile.should.be.true;
+      dog._heterotroph.should.be.true;
+    });
+    
+  });
+
+  describe('getters and setters', () => {
+    it('should have a method named `symmetry` that returns a string value based on the private variable `_symmetry`', () => {
+      dog._symmetry.should.be.equal('vertebral-column');
+      dog.symmetry.should.be.equal('vertebral-column');
+      dog.symmetry = 'exoskeleton';
+      dog._symmetry.should.be.equal('exoskeleton');
+      dog.symmetry.should.be.equal('exoskeleton');
+    });
   });
 });
