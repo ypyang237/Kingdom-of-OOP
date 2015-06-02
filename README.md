@@ -71,6 +71,7 @@ declares and assigns the following private properties
 - should have a method named `mobile` that returns a boolean value based on the private `_mobile`
 - should have a method named `mobile` that sets the value of the private `_mobile`
 - should have a method named `immobile` that returns a boolean value based on the private `
+- should have a method named `immobile` that sets the value of the private `_mobile`
 
 ---
 
