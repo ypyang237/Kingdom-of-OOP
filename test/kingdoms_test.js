@@ -10,6 +10,7 @@ import LivingThing from '../lib/LivingThing';
 import Archaea from '../lib/Archaea';
 import Bacteria from '../lib/Bacteria';
 import Eukaryota from '../lib/Eukaryota';
+import Fungi from '../lib/Fungi';
 
 import 'should';
 
@@ -232,4 +233,34 @@ describe('Eukaryota', () => {
     });
   });
 
+});
+
+describe('Fungi', () => {
+  
+  let fungus;
+
+  beforeEach(() => {
+    fungus = new Fungi('Mushroom');
+  });
+
+  it('should extend Eukaryota', () => {
+    (fungus instanceof Eukaryota).should.be.true;
+  });
+
+  describe('constructor', () => {
+    
+    it('should have arguments (name) that set respective private variables', () => {
+      fungus._name.should.be.equal('Mushroom');
+    });
+
+    it('should invoke super constructor with correct hardcoded arguments', () => {
+      fungus._uniCellular.should.be.false;
+      fungus._trueNucleus.should.be.true;
+      fungus._anaerobic.should.be.false;
+      fungus._asexual.should.be.true;
+      fungus._mobile.should.be.false;
+      fungus._heterotroph.should.be.true;
+    });
+    
+  });
 });
